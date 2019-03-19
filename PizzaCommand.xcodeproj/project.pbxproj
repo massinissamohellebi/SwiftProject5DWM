@@ -14,6 +14,9 @@
 		00E06C062241118200A7FB94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E06C042241118200A7FB94 /* LaunchScreen.storyboard */; };
 		00E06C112241118200A7FB94 /* PizzaCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E06C102241118200A7FB94 /* PizzaCommandTests.swift */; };
 		00E06C1C2241118200A7FB94 /* PizzaCommandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E06C1B2241118200A7FB94 /* PizzaCommandUITests.swift */; };
+		00E06C2A2241123400A7FB94 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E06C292241123400A7FB94 /* TableViewCell.swift */; };
+		00E06C2C2241125B00A7FB94 /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E06C2B2241125B00A7FB94 /* Pizza.swift */; };
+		00E06C302241352000A7FB94 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E06C2F2241352000A7FB94 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		00E06C172241118200A7FB94 /* PizzaCommandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PizzaCommandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E06C1B2241118200A7FB94 /* PizzaCommandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCommandUITests.swift; sourceTree = "<group>"; };
 		00E06C1D2241118200A7FB94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E06C292241123400A7FB94 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		00E06C2B2241125B00A7FB94 /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
+		00E06C2F2241352000A7FB94 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +105,13 @@
 			children = (
 				00E06BFB2241118000A7FB94 /* AppDelegate.swift */,
 				00E06BFD2241118000A7FB94 /* ViewController.swift */,
+				00E06C2B2241125B00A7FB94 /* Pizza.swift */,
+				00E06C292241123400A7FB94 /* TableViewCell.swift */,
 				00E06BFF2241118000A7FB94 /* Main.storyboard */,
 				00E06C022241118200A7FB94 /* Assets.xcassets */,
 				00E06C042241118200A7FB94 /* LaunchScreen.storyboard */,
 				00E06C072241118200A7FB94 /* Info.plist */,
+				00E06C2F2241352000A7FB94 /* SearchViewController.swift */,
 			);
 			path = PizzaCommand;
 			sourceTree = "<group>";
@@ -256,6 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00E06C302241352000A7FB94 /* SearchViewController.swift in Sources */,
+				00E06C2C2241125B00A7FB94 /* Pizza.swift in Sources */,
+				00E06C2A2241123400A7FB94 /* TableViewCell.swift in Sources */,
 				00E06BFE2241118000A7FB94 /* ViewController.swift in Sources */,
 				00E06BFC2241118000A7FB94 /* AppDelegate.swift in Sources */,
 			);

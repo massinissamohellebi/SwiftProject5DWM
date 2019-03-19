@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+import UIKit
+
+class Pizza{
+    var pizzaTitle : String
+    var pizzaIngredients: Array<String>
+    
+    init(pizzaTitle: String, pizzaIngredients: Array<String>) {
+        self.pizzaTitle = pizzaTitle
+        self.pizzaIngredients = pizzaIngredients
+    }
+}
