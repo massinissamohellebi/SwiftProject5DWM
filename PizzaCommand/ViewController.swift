@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSoup
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -15,11 +16,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func createArray() -> [Pizza]{
         var tempPizzas:[Pizza] = []
-        let pizza1 = Pizza(pizzaTitle: "Pizza au jambon", pizzaIngredients:["olive", "jambon", "tomate"])
-        let pizza2 = Pizza(pizzaTitle: "Pizza Vegetarienne", pizzaIngredients:["olive", "champignons", "tomate"])
-        tempPizzas.append(pizza1)
-        tempPizzas.append(pizza2)
         
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        let url = URL(string: "http://127.0.0.1:8080/recettes")!
+        
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else { return }
+            let  htmlContent = String(data: data, encoding: .utf8)!
+            do{
+                let doc = try SwiftSoup.parse(htmlContent)
+                do{
+                    let element = try doc.select("h1")
+                    for el in element {
+                        let text = try el.text()
+                        print(text)
+                        let pizza = Pizza(pizzaTitle: String(text), pizzaIngredients:[String(text)])
+                        tempPizzas.append(pizza)
+                        
+                    }
+                    semaphore.signal()
+                    
+                }catch{
+                    
+                }
+                
+            }catch{
+                
+            }
+            
+        }
+        
+        task.resume()
+        semaphore.wait()
         return tempPizzas
     }
     
