@@ -24,7 +24,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         var tempPizzas:[Pizza] = []
         let pizza1 = Pizza(pizzaTitle: "Pizza au jambon", pizzaIngredients:["olive", "jambon", "tomate"])
         let pizza2 = Pizza(pizzaTitle: "Pizza Vegetarienne", pizzaIngredients:["olive", "champignons", "tomate"])
-        let pizza3 = Pizza(pizzaTitle: "Pizza Thon", pizzaIngredients:["olive", "Thon", "tomate"])
+        let pizza3 = Pizza(pizzaTitle: "Pizza Thon", pizzaIngredients:["olive", "thon", "tomate"])
         tempPizzas.append(pizza1)
         tempPizzas.append(pizza2)
         tempPizzas.append(pizza3)
@@ -45,8 +45,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "searchCell")
         
         if searching == false {
-            
-            print("no search")
             let pizza = pizzas[indexPath.row]
             
             var ingredients = ""
@@ -58,7 +56,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             cell?.detailTextLabel?.text = ingredients
             
         }else{
-            print("search")
             let pizza = searchedPizzas[indexPath.row]
             
             var ingredients = ""
@@ -76,12 +73,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func searchBar(_ searchBar:UISearchBar, textDidChange searchText: String){
-        searchedPizzas.removeAll()
         if searchText == "" {
             searching = false
         }else{
-            let pizza1 = Pizza(pizzaTitle: "Pizza Search", pizzaIngredients:["olive", "jambon", "tomate"])
-            searchedPizzas.append(pizza1)
+            searchedPizzas = pizzas.filter({( pizza : Pizza) -> Bool in
+                return pizza.pizzaTitle.lowercased().contains(searchText.lowercased())
+            })
             searching = true
         }
         searchTableView.reloadData()
